@@ -1,0 +1,19 @@
+leaf_mask_collection:
+  class_names: "green leaf,soil"
+  trg_class_names: "green leaf"
+  granularity: 0.8
+  min_mask_area: 0
+  use_sliding_window: False
+
+leaf_segmentation:
+  output_img_size: (640, 480) # (H, W)
+  min_area_th: 130
+  max_area_th: 92160 # 30% of the image size
+  th_ratio: 0.7
+
+plant_segmentation:
+  eps_minsamples_dict:
+    "G": (35, 2)
+  min_area_th: 130
+  num_steps: 45
+  output_img_size: (640, 480)

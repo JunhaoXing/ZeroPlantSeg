@@ -1,0 +1,1 @@
+from . import open_vocab_seg
