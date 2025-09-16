@@ -1,8 +1,6 @@
 FROM nvidia/cuda:11.3.1-cudnn8-devel-ubuntu20.04
 
 
-RUN useradd -u 1153 juxing
-
 ENV TZ=Asia/Tokyo
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
@@ -28,5 +26,3 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 RUN pip3 install 'git+https://github.com/facebookresearch/segment-anything.git' && pip3 install 'git+https://github.com/facebookresearch/detectron2.git' && pip3 install 'git+https://github.com/IDEA-Research/GroundingDINO.git'
-
-WORKDIR /home/juxing/mnt/workspace/zeroshot_hierarchical
